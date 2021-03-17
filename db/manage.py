@@ -95,6 +95,14 @@ class Manager:
                     print(f'Objeto não existe no banco de dados {table}')
 
     @classmethod
+    def deletar(cls, table, id):
+        sql = f'DELETE FROM {table} WHERE id={id}'
+        with conexao() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(sql)
+                conn.commit()
+
+    @classmethod
     def _get(cls, table, **kwargs):
         field = ''
         for k, v in kwargs.items(): field += f'{k}={v}'
