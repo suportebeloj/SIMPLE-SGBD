@@ -5,3 +5,4 @@ DATABASE_SETTINGS = {
     "DATABASE": 'testes',
     "CHARSET":'utf8',
 }
+

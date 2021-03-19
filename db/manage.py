@@ -116,3 +116,16 @@ class Manager:
                 if result:
                     return True
                 return False
+
+    @classmethod
+    def _table_existe(cls, table_name=None):
+        sql = 'show tables;'
+
+        with conexao() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(sql)
+                result = [r['Tables_in_testes'] for r in cursor.fetchall()]
+
+                if table_name in result:
+                    return True
+                return False
